@@ -1,0 +1,11 @@
+[package]
+name = "travelling_salesman"
+version = "0.0.1"
+authors = ["Alfie John <alfie@alfie.wtf>"]
+description = "Travelling Salesman Problem Solvers"
+
+documentation = "https://www.alfie.wtf/rust-doc/travelling_salesman"
+homepage = "https://crates.io/crates/travelling_salesman"
+repository = "https://github.com/alfiedotwtf/travelling_salesman"
+
+license = "GPL-3.0"
