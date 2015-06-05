@@ -81,7 +81,7 @@ pub fn get_distance_matrix(cities: &Vec<(f64, f64)>) -> Vec<Vec<f64>> {
 ///     ];
 ///
 ///     let distance_matrix = get_distance_matrix(&cities);
-///     let route_distance  = get_route_distance(&distance_matrix, &vec![3, 0, 2, 1]);
+///     let route_distance  = get_route_distance(&distance_matrix, &vec![3, 0, 2, 1, 3]);
 ///
 ///     assert!((route_distance - 222.998472).abs() < 0.000001);
 /// }
