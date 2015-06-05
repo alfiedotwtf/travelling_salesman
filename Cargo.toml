@@ -1,6 +1,6 @@
 [package]
 name = "travelling_salesman"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["Alfie John <alfie@alfie.wtf>"]
 description = "Travelling Salesman Problem Solvers"
 

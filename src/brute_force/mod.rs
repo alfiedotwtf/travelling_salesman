@@ -74,6 +74,9 @@ fn _brute_force(
         my_route.push(*unvisited_city);
 
         if my_unvisited_cities.is_empty() {
+            let first_city = my_route[0];
+            my_route.push(first_city);
+
             let my_route_distance = get_route_distance(&distance_matrix, &my_route);
 
             if (smallest_tour.distance == 0.0) || (my_route_distance < smallest_tour.distance) {

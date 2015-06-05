@@ -87,23 +87,15 @@ pub fn get_distance_matrix(cities: &Vec<(f64, f64)>) -> Vec<Vec<f64>> {
 /// }
 /// ```
 pub fn get_route_distance(distance_matrix: &Vec<Vec<f64>>, route: &Vec<u32>) -> f64 {
-    let mut total_distance = 0.0;
-    let mut route_iter     = route.iter();
-
-    let (first_city, mut current_city) = match route_iter.next() {
-        None    => return total_distance,
-        Some(v) => (*v, *v),
+    let mut route_iter   = route.iter();
+    let mut current_city = match route_iter.next() {
+        None    => return 0.0,
+        Some(v) => *v,
     };
 
-    loop {
-        match route_iter.next() {
-            Some(next_city) => {
-                total_distance += distance_matrix[current_city as usize][*next_city as usize];
-                current_city    = *next_city;
-            }
-            None => {
-                return total_distance + distance_matrix[current_city as usize][first_city as usize]
-            }
-        };
-    }
+    route_iter.fold(0.0, |mut total_distance, &next_city| {
+        total_distance += distance_matrix[current_city as usize][next_city as usize];
+        current_city    = next_city;
+        total_distance
+    })
 }
