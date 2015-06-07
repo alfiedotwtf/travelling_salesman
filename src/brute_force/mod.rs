@@ -50,10 +50,19 @@ use std::iter::FromIterator;
 pub fn solve(cities: &Vec<(f64, f64)>) -> Tour {
     let mut smallest_tour = Tour { distance: 0.0, route: vec![] };
 
+    if cities.len() == 0 {
+        return smallest_tour;
+    }
+
+    let mut unvisited_cities = HashSet::<u32>::from_iter((0..cities.len() as u32).collect::<Vec<u32>>());
+    let home_city            = 0;
+    let current_route        = vec![home_city as u32];
+    unvisited_cities.remove(&0);
+
     _brute_force(
         &get_distance_matrix(cities),
-        HashSet::<u32>::from_iter((0..cities.len() as u32).collect::<Vec<u32>>()),
-        vec![],
+        unvisited_cities,
+        current_route,
         &mut smallest_tour,
     );
 
@@ -61,10 +70,10 @@ pub fn solve(cities: &Vec<(f64, f64)>) -> Tour {
 }
 
 fn _brute_force(
-    distance_matrix: &Vec<Vec<f64>>,
+    distance_matrix:  &Vec<Vec<f64>>,
     unvisited_cities: HashSet<u32>,
-    current_route: Vec<u32>,
-    smallest_tour: &mut Tour
+    current_route:    Vec<u32>,
+    smallest_tour:    &mut Tour
 ) {
     for unvisited_city in &unvisited_cities {
         let mut my_unvisited_cities = unvisited_cities.clone();
