@@ -10,7 +10,7 @@
 //! use travelling_salesman::brute_force;
 //!
 //! fn main() {
-//!     let cities = vec![
+//!     let cities = [
 //!         (27.0, 78.0),
 //!         (18.0, 24.0),
 //!         (48.0, 62.0),
@@ -42,7 +42,7 @@ pub struct Tour {
 /// use travelling_salesman::*;
 ///
 /// fn main() {
-///     let cities = vec![
+///     let cities = [
 ///         (27.0, 78.0),
 ///         (18.0, 24.0),
 ///         (48.0, 62.0),
@@ -56,7 +56,7 @@ pub struct Tour {
 ///     assert!((distance_matrix[0][3] - 82.807005).abs() < 0.000001);
 /// }
 /// ```
-pub fn get_distance_matrix(cities: &Vec<(f64, f64)>) -> Vec<Vec<f64>> {
+pub fn get_distance_matrix(cities: &[(f64, f64)]) -> Vec<Vec<f64>> {
     cities.iter().map(|row| {
         cities.iter().map(|column| {
             ((column.0 - row.0).powi(2) + (column.1 - row.1).powi(2)).sqrt()
@@ -73,7 +73,7 @@ pub fn get_distance_matrix(cities: &Vec<(f64, f64)>) -> Vec<Vec<f64>> {
 /// use travelling_salesman::*;
 ///
 /// fn main() {
-///     let cities = vec![
+///     let cities = [
 ///         (27.0, 78.0),
 ///         (18.0, 24.0),
 ///         (48.0, 62.0),

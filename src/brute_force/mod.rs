@@ -10,7 +10,7 @@
 //! use travelling_salesman::brute_force;
 //!
 //! fn main() {
-//!     let cities = vec![
+//!     let cities = [
 //!         (27.0, 78.0),
 //!         (18.0, 24.0),
 //!         (48.0, 62.0),
@@ -36,7 +36,7 @@ use std::iter::FromIterator;
 /// use travelling_salesman::brute_force;
 ///
 /// fn main() {
-///     let cities = vec![
+///     let cities = [
 ///         (27.0, 78.0),
 ///         (18.0, 24.0),
 ///         (48.0, 62.0),
@@ -47,7 +47,7 @@ use std::iter::FromIterator;
 ///     println!("tour distance: {}, tour route: {:?}", tour.distance, tour.route);
 /// }
 /// ```
-pub fn solve(cities: &Vec<(f64, f64)>) -> Tour {
+pub fn solve(cities: &[(f64, f64)]) -> Tour {
     let mut smallest_tour = Tour { distance: 0.0, route: vec![] };
 
     if cities.len() == 0 {
