@@ -30,7 +30,7 @@ pub struct Tour {
     /// the total distance travelled following this tour
     pub distance: f64,
     /// the ordered route for this tour
-    pub route:    Vec<u32>,
+    pub route:    Vec<usize>,
 }
 
 /// Utility function to convert city coordinates to a distance matrix
@@ -86,7 +86,7 @@ pub fn get_distance_matrix(cities: &[(f64, f64)]) -> Vec<Vec<f64>> {
 ///     assert!((route_distance - 222.998472).abs() < 0.000001);
 /// }
 /// ```
-pub fn get_route_distance(distance_matrix: &Vec<Vec<f64>>, route: &Vec<u32>) -> f64 {
+pub fn get_route_distance(distance_matrix: &Vec<Vec<f64>>, route: &Vec<usize>) -> f64 {
     let mut route_iter   = route.iter();
     let mut current_city = match route_iter.next() {
         None    => return 0.0,

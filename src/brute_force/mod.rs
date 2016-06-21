@@ -61,9 +61,8 @@ pub fn solve(cities: &[(f64, f64)]) -> Tour {
         return smallest_tour;
     }
 
-    let mut unvisited_cities = HashSet::<u32>::from_iter((0..cities.len() as u32).collect::<Vec<u32>>());
-    let home_city            = 0;
-    let current_route        = vec![home_city as u32];
+    let mut unvisited_cities = HashSet::<usize>::from_iter((0..cities.len()).collect::<Vec<usize>>());
+    let current_route        = vec!(0);
     unvisited_cities.remove(&0);
 
     _brute_force(
@@ -78,8 +77,8 @@ pub fn solve(cities: &[(f64, f64)]) -> Tour {
 
 fn _brute_force(
     distance_matrix:  &Vec<Vec<f64>>,
-    unvisited_cities: HashSet<u32>,
-    current_route:    Vec<u32>,
+    unvisited_cities: HashSet<usize>,
+    current_route:    Vec<usize>,
     smallest_tour:    &mut Tour
 ) {
     for unvisited_city in &unvisited_cities {
@@ -90,8 +89,8 @@ fn _brute_force(
         my_route.push(*unvisited_city);
 
         if my_unvisited_cities.is_empty() {
-            let first_city = my_route[0];
-            my_route.push(first_city);
+            let home_city = my_route[0];
+            my_route.push(home_city);
 
             let my_route_distance = get_route_distance(&distance_matrix, &my_route);
 
