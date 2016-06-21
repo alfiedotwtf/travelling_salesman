@@ -52,7 +52,10 @@ use super::{
 /// }
 /// ```
 pub fn solve(cities: &[(f64, f64)]) -> Tour {
-    let mut smallest_tour = Tour { distance: 0.0, route: vec![] };
+    let mut smallest_tour = Tour {
+        distance: 0.0,
+        route: vec![]
+    };
 
     if cities.len() == 0 {
         return smallest_tour;
@@ -100,6 +103,11 @@ fn _brute_force(
             return;
         }
 
-        _brute_force(distance_matrix, my_unvisited_cities, my_route, smallest_tour);
+        _brute_force(
+            distance_matrix,
+            my_unvisited_cities,
+            my_route,
+            smallest_tour,
+        );
     }
 }
