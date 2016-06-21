@@ -2,6 +2,8 @@
 
 travelling_salesman - Travelling Salesman Problem Solvers
 
+NOTE: documentation currently out of date!
+
 The aim of this crate is to host various Travelling Salesman Problem solvers.
 Patches implementing useful algorithms most welcome.
 
