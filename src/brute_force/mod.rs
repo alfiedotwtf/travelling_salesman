@@ -22,10 +22,14 @@
 //! }
 //! ```
 
-use super::*;
-
 use std::collections::HashSet;
 use std::iter::FromIterator;
+
+use super::{
+    get_distance_matrix,
+    get_route_distance,
+    Tour,
+};
 
 /// Function that exactly solves by brute force search the Travelling Salesman Problem.
 ///
