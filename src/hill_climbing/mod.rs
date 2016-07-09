@@ -1,7 +1,6 @@
 extern crate metaheuristics;
 
 pub mod random_restarts;
-pub mod steepest_ascent;
 
 use time::{Duration};
 use rand::thread_rng;
