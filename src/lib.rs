@@ -3,26 +3,30 @@
 //! The aim of this crate is to host various Travelling Salesman Problem solvers. Patches
 //! implementing useful algorithms most welcome.
 //!
-//! # Examples
-//! ```
-//! extern crate travelling_salesman;
+//! For more information, please see the [Travelling Salesman
+//! Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem) Wikipedia article.
 //!
-//! use travelling_salesman::brute_force;
+//!# Examples
 //!
-//! fn main() {
-//!     let cities = [
-//!         (27.0, 78.0),
-//!         (18.0, 24.0),
-//!         (48.0, 62.0),
-//!         (83.0, 17.0),
-//!     ];
+//!```
+//!extern crate time;
+//!extern crate travelling_salesman;
 //!
-//!     let tour = brute_force::solve(&cities);
-//!     println!("tour distance: {}, tour route: {:?}", tour.distance, tour.route);
-//! }
+//!fn main() {
+//!  let tour = travelling_salesman::simulated_annealing::solve(
+//!    &[
+//!       (27.0, 78.0),
+//!       (18.0, 24.0),
+//!       (48.0, 62.0),
+//!       (83.0, 77.0),
+//!       (55.0, 56.0),
+//!    ],
+//!    time::Duration::seconds(1),
+//!  );
 //!
-//! ```
-
+//!  println!("Tour distance: {}, route: {:?}", tour.distance, tour.route);
+//!}
+//!```
 pub mod brute_force;
 pub mod hill_climbing;
 pub mod random_search;
@@ -126,27 +130,29 @@ pub struct Tour {
 
 /// Utility function to convert city coordinates to a distance matrix
 ///
-/// # Examples
-/// ```
-/// extern crate travelling_salesman;
+/// `cities` is an array slice, containing `(x,y)` tuple coordinates for each city.
 ///
-/// use travelling_salesman::*;
+/// Returns a `Vec<Vec<f64>>`, containing the distance matrix.
 ///
-/// fn main() {
-///     let cities = [
-///         (27.0, 78.0),
-///         (18.0, 24.0),
-///         (48.0, 62.0),
-///         (83.0, 17.0),
-///     ];
+///# Examples
 ///
-///     let distance_matrix = get_distance_matrix(&cities);
+///```
+///extern crate travelling_salesman;
 ///
-///     assert!(distance_matrix[0][0] == 0.0);
-///     assert!(distance_matrix[1][2] == distance_matrix[2][1]);
-///     assert!((distance_matrix[0][3] - 82.807005).abs() < 0.000001);
-/// }
-/// ```
+///fn main() {
+///    let cities = [
+///      (27.0, 78.0),
+///      (18.0, 24.0),
+///      (48.0, 62.0),
+///      (83.0, 77.0),
+///      (55.0, 56.0),
+///    ];
+///
+///    let distance_matrix = travelling_salesman::get_distance_matrix(&cities);
+///
+///    println!("The distance between 1 and 2 is: {}", distance_matrix[1][2]);
+///}
+///```
 pub fn get_distance_matrix(cities: &[(f64, f64)]) -> Vec<Vec<f64>> {
     cities.iter().map(|row| {
         cities.iter().map(|column| {
@@ -157,26 +163,34 @@ pub fn get_distance_matrix(cities: &[(f64, f64)]) -> Vec<Vec<f64>> {
 
 /// Utility function to calculate the distance travelled following the specified route
 ///
-/// # Examples
-/// ```
-/// extern crate travelling_salesman;
+/// `distance_matrix` is a `&Vec<Vec<f64>>` containing the distance matrix.
 ///
-/// use travelling_salesman::*;
+/// `route` is a `&Vec<usize>`, containing the route of the travelling salesman.
 ///
-/// fn main() {
-///     let cities = [
-///         (27.0, 78.0),
-///         (18.0, 24.0),
-///         (48.0, 62.0),
-///         (83.0, 17.0),
-///     ];
+/// Returns an `f64`, representing the distance of the route travelled.
 ///
-///     let distance_matrix = get_distance_matrix(&cities);
-///     let route_distance  = get_route_distance(&distance_matrix, &vec![3, 0, 2, 1, 3]);
+///# Examples
 ///
-///     assert!((route_distance - 222.998472).abs() < 0.000001);
-/// }
-/// ```
+///```
+///extern crate travelling_salesman;
+///
+///fn main() {
+///    let cities = [
+///      (27.0, 78.0),
+///      (18.0, 24.0),
+///      (48.0, 62.0),
+///      (83.0, 77.0),
+///      (55.0, 56.0),
+///    ];
+///
+///    let route_distance = travelling_salesman::get_route_distance(
+///      &travelling_salesman::get_distance_matrix(&cities),
+///      &vec![0, 2, 3, 4, 1, 0]
+///    );
+///
+///    println!("The route distance for the tour [0, 2, 3, 4, 1, 0] is {}", route_distance);
+///}
+///```
 pub fn get_route_distance(distance_matrix: &Vec<Vec<f64>>, route: &Vec<usize>) -> f64 {
     let mut route_iter   = route.iter();
     let mut current_city = match route_iter.next() {

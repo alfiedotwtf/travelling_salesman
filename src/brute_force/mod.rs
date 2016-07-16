@@ -1,27 +1,28 @@
-//! Brute Force Travelling Salesman Problem Solver
+//! Find an exact solution to the Travelling Salesman Problem using Brute Force
 //!
-//! This crate implements an exact solution brute force search for the Travelling Salesman
-//! Problem.
+//! **Note: This isn't really a useful algorithm as Brute force is `O(n!)`, and is only included
+//! for completeness.**
 //!
-//! # Examples
-//! ```
-//! extern crate travelling_salesman;
+//!# Examples
 //!
-//! use travelling_salesman::brute_force;
+//!```
+//!extern crate travelling_salesman;
 //!
-//! fn main() {
-//!     let cities = [
-//!         (27.0, 78.0),
-//!         (18.0, 24.0),
-//!         (48.0, 62.0),
-//!         (83.0, 17.0),
-//!     ];
+//!fn main() {
+//!  let tour = travelling_salesman::brute_force::solve(
+//!    &[
+//!       (27.0, 78.0),
+//!       (18.0, 24.0),
+//!       (48.0, 62.0),
+//!       (83.0, 77.0),
+//!       (55.0, 56.0),
+//!    ],
+//!  );
 //!
-//!     let tour = brute_force::solve(&cities);
-//!     println!("tour distance: {}, tour route: {:?}", tour.distance, tour.route);
-//! }
-//! ```
-
+//!  println!("Tour distance: {}, route: {:?}", tour.distance, tour.route);
+//!}
+//!```
+//!
 use std::collections::HashSet;
 use std::iter::FromIterator;
 
@@ -31,26 +32,33 @@ use super::{
     Tour,
 };
 
-/// Function that exactly solves by brute force search the Travelling Salesman Problem.
+/// Returns an exact solution to the Travelling Salesman Problem using Brute Force
 ///
-/// # Example
-/// ```
-/// extern crate travelling_salesman;
+/// `cities` is an array slice, containing `(x,y)` tuple coordinates for each city.
 ///
-/// use travelling_salesman::brute_force;
+/// Returns a `travelling_salesman::Tour` struct, representing the approximate solution found.
 ///
-/// fn main() {
-///     let cities = [
-///         (27.0, 78.0),
-///         (18.0, 24.0),
-///         (48.0, 62.0),
-///         (83.0, 17.0),
-///     ];
+/// **Note: This isn't really a useful algorithm as Brute force is `O(n!)`, and is only included
+/// for completeness.**
 ///
-///     let tour = brute_force::solve(&cities);
-///     println!("tour distance: {}, tour route: {:?}", tour.distance, tour.route);
-/// }
-/// ```
+///```
+///extern crate travelling_salesman;
+///
+///fn main() {
+///  let tour = travelling_salesman::brute_force::solve(
+///    &[
+///       (27.0, 78.0),
+///       (18.0, 24.0),
+///       (48.0, 62.0),
+///       (83.0, 77.0),
+///       (55.0, 56.0),
+///    ],
+///  );
+///
+///  println!("Tour distance: {}, route: {:?}", tour.distance, tour.route);
+///}
+///
+///```
 pub fn solve(cities: &[(f64, f64)]) -> Tour {
     let mut smallest_tour = Tour {
         distance: 0.0,
