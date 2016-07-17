@@ -8,6 +8,9 @@
 //! Pursuit of the Traveling Salesman: Mathematics at the Limits of
 //! Computation](http://www.amazon.com/Pursuit-Traveling-Salesman-Mathematics-Computation/dp/0691152705)
 //!
+//! The documentation for this crate can be [found
+//! here](https://www.alfie.wtf/rustdoc/travelling_salesman/travelling_salesman).
+//!
 //!# Examples
 //!
 //!```
