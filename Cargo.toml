@@ -1,6 +1,6 @@
 [package]
 name        = "travelling_salesman"
-version     = "0.0.12"
+version     = "0.0.13"
 authors     = ["Alfie John <alfie@alfie.wtf>"]
 
 description   = "Travelling Salesman Problem Solvers"
@@ -11,6 +11,6 @@ repository    = "https://github.com/alfiedotwtf/travelling_salesman"
 license = "GPL-3.0"
 
 [dependencies]
-metaheuristics = "0.0.10"
+metaheuristics = "0.0.11"
 rand           = "0.3.10"
 time           = "0.1.30"
