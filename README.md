@@ -12,8 +12,8 @@ of Computation](http://www.amazon.com/Pursuit-Traveling-Salesman-Mathematics-Com
 
 # Examples
 
-extern crate time;
-extern crate travelling_salesman;
+    extern crate time;
+    extern crate travelling_salesman;
 
     fn main() {
       let tour = travelling_salesman::simulated_annealing::solve(
