@@ -42,15 +42,19 @@ use super::{
 
 /// Returns an approximate solution to the Travelling Salesman Problem using Hill Climbing
 ///
+/// For more information, please see the
+/// [metaheuristics::hill_climbing](https://www.alfie.wtf/rustdoc/metaheuristics/metaheuristics/hill_climbing/)
+/// documentation.
+///
+///# Parameters and Return Type
+///
 /// `cities` is an array slice, containing `(x,y)` tuple coordinates for each city.
 ///
 /// `runtime` is a `time::Duration`, specifying how long to spend searching for a solution.
 ///
 /// Returns a `travelling_salesman::Tour` struct, representing the approximate solution found.
 ///
-/// For more information, please see the
-/// [metaheuristics::hill_climbing](https://www.alfie.wtf/rustdoc/metaheuristics/metaheuristics/hill_climbing/)
-/// documentation.
+///# Examples
 ///
 ///```
 ///extern crate time;

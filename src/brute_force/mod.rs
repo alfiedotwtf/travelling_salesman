@@ -34,12 +34,16 @@ use super::{
 
 /// Returns an exact solution to the Travelling Salesman Problem using Brute Force
 ///
+/// **Note: This isn't really a useful algorithm as Brute force is `O(n!)`, and is only included
+/// for completeness.**
+///
+///# Parameters and Return Type
+///
 /// `cities` is an array slice, containing `(x,y)` tuple coordinates for each city.
 ///
 /// Returns a `travelling_salesman::Tour` struct, representing the approximate solution found.
 ///
-/// **Note: This isn't really a useful algorithm as Brute force is `O(n!)`, and is only included
-/// for completeness.**
+///# Examples
 ///
 ///```
 ///extern crate travelling_salesman;
@@ -57,7 +61,6 @@ use super::{
 ///
 ///  println!("Tour distance: {}, route: {:?}", tour.distance, tour.route);
 ///}
-///
 ///```
 pub fn solve(cities: &[(f64, f64)]) -> Tour {
     let mut smallest_tour = Tour {

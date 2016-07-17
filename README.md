@@ -1,6 +1,6 @@
-# NAME
+# Travelling Salesman
 
-travelling_salesman - Travelling Salesman Problem Solvers
+Travelling Salesman Problem Solvers
 
 The aim of this crate is to host various Travelling Salesman Problem solvers.
 Patches implementing useful algorithms most welcome.
@@ -8,7 +8,7 @@ Patches implementing useful algorithms most welcome.
 For more information, please see the [Travelling Salesman
 Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem) Wikipedia
 article, and [In Pursuit of the Traveling Salesman: Mathematics at the Limits
-of Computation](http://www.amazon.com/Pursuit-Traveling-Salesman-Mathematics-Computation/dp/0691152705)
+of Computation](http://www.amazon.com/Pursuit-Traveling-Salesman-Mathematics-Computation/dp/0691152705).
 
 # Examples
 

@@ -39,15 +39,19 @@ use super::{
 
 /// Returns an approximate solution to the Travelling Salesman Problem using Simulated Annealing
 ///
+/// For more information, please see the
+/// [metaheuristics::simulated_annealing](https://www.alfie.wtf/rustdoc/metaheuristics/metaheuristics/simulated_annealing/)
+/// documentation.
+///
+///# Parameters and Return Type
+///
 /// `cities` is an array slice, containing `(x,y)` tuple coordinates for each city.
 ///
 /// `runtime` is a `time::Duration`, specifying how long to spend searching for a solution.
 ///
 /// Returns a `travelling_salesman::Tour` struct, representing the approximate solution found.
 ///
-/// For more information, please see the
-/// [metaheuristics::simulated_annealing](https://www.alfie.wtf/rustdoc/metaheuristics/metaheuristics/simulated_annealing/)
-/// documentation.
+///# Examples
 ///
 ///```
 ///extern crate time;

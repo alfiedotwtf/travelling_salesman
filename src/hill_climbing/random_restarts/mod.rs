@@ -41,6 +41,11 @@ use super::super::{
 
 /// Returns an approximate solution to the Travelling Salesman Problem using Hill Climbing with random restarts
 ///
+/// For more information, please see the
+/// [metaheuristics::hill_climbing::random_restarts](https://www.alfie.wtf/rustdoc/metaheuristics/metaheuristics/hill_climbing/random_restarts/)
+///
+///# Parameters and Return Type
+///
 /// `cities` is an array slice, containing `(x,y)` tuple coordinates for each city.
 ///
 /// `runtime` is a `time::Duration`, specifying how long to spend searching for a solution.
@@ -49,9 +54,7 @@ use super::super::{
 ///
 /// Returns a `travelling_salesman::Tour` struct, representing the approximate solution found.
 ///
-/// For more information, please see the
-/// [metaheuristics::hill_climbing::random_restarts](https://www.alfie.wtf/rustdoc/metaheuristics/metaheuristics/hill_climbing/random_restarts/)
-/// documentation.
+///# Examples
 ///
 ///```
 ///extern crate time;
