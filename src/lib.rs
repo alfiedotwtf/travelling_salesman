@@ -4,7 +4,9 @@
 //! implementing useful algorithms most welcome.
 //!
 //! For more information, please see the [Travelling Salesman
-//! Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem) Wikipedia article.
+//! Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem) Wikipedia article, and [In
+//! Pursuit of the Traveling Salesman: Mathematics at the Limits of
+//! Computation](http://www.amazon.com/Pursuit-Traveling-Salesman-Mathematics-Computation/dp/0691152705)
 //!
 //!# Examples
 //!
@@ -27,6 +29,41 @@
 //!  println!("Tour distance: {}, route: {:?}", tour.distance, tour.route);
 //!}
 //!```
+//!
+//!# Support
+//!
+//! Please report any bugs or feature requests at:
+//!
+//! * [https://github.com/alfiedotwtf/travelling_salesman/issues](https://github.com/alfiedotwtf/travelling_salesman/issues)
+//!
+//! Watch the repository and keep up with the latest changes:
+//!
+//! * [https://github.com/alfiedotwtf/travelling_salesman/subscription](https://github.com/alfiedotwtf/travelling_salesman/subscription)
+//!
+//! Feel free to fork the repository and submit pull requests :)
+//!
+//!# Author
+//!
+//! [Alfie John](https://www.alfie.wtf) &lt;[alfie@alfie.wtf](mailto:alfie@alfie.wtf)&gt;
+//!
+//!# Warranty
+//!
+//! IT COMES WITHOUT WARRANTY OF ANY KIND.
+//!
+//!# Copyright and License
+//!
+//! Copyright (C) 2015 by Alfie John
+//!
+//! This program is free software: you can redistribute it and/or modify it under the terms of the
+//! GNU General Public License as published by the Free Software Foundation, either version 3 of
+//! the License, or (at your option) any later version.
+//!
+//! This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+//! without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See
+//! the GNU General Public License for more details.
+//!
+//! You should have received a copy of the GNU General Public License along with this program. If
+//! not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
 pub mod brute_force;
 pub mod hill_climbing;
 pub mod random_search;

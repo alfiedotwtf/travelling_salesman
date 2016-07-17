@@ -2,30 +2,35 @@
 
 travelling_salesman - Travelling Salesman Problem Solvers
 
-NOTE: documentation currently out of date!
-
 The aim of this crate is to host various Travelling Salesman Problem solvers.
 Patches implementing useful algorithms most welcome.
 
-# USAGE
+For more information, please see the [Travelling Salesman
+Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem) Wikipedia
+article, and [In Pursuit of the Traveling Salesman: Mathematics at the Limits
+of Computation](http://www.amazon.com/Pursuit-Traveling-Salesman-Mathematics-Computation/dp/0691152705)
 
-    extern crate travelling_salesman;
+# Examples
 
-    use travelling_salesman::brute_force;
+extern crate time;
+extern crate travelling_salesman;
 
     fn main() {
-        let cities = vec![
-            (27.0, 78.0),
-            (18.0, 24.0),
-            (48.0, 62.0),
-            (83.0, 17.0),
-        ];
+      let tour = travelling_salesman::simulated_annealing::solve(
+        &[
+           (27.0, 78.0),
+           (18.0, 24.0),
+           (48.0, 62.0),
+           (83.0, 77.0),
+           (55.0, 56.0),
+        ],
+        time::Duration::seconds(1),
+      );
 
-        let tour = brute_force::solve(&cities);
-        println!("tour distance: {}, tour route: {:?}", tour.distance, tour.route);
+      println!("Tour distance: {}, route: {:?}", tour.distance, tour.route);
     }
 
-# SUPPORT
+# Support
 
 Please report any bugs or feature requests at:
 
@@ -37,19 +42,15 @@ Watch the repository and keep up with the latest changes:
 
 Feel free to fork the repository and submit pull requests :)
 
-# SEE ALSO
-
-* [In Pursuit of the Traveling Salesman: Mathematics at the Limits of Computation](http://www.amazon.com/Pursuit-Traveling-Salesman-Mathematics-Computation/dp/0691152705)
-
-# AUTHOR
+# Author
 
 [Alfie John](https://www.alfie.wtf) &lt;[alfie@alfie.wtf](mailto:alfie@alfie.wtf)&gt;
 
-# WARRANTY
+# Warranty
 
 IT COMES WITHOUT WARRANTY OF ANY KIND.
 
-# COPYRIGHT AND LICENSE
+# Copyright and License
 
 Copyright (C) 2015 by Alfie John
 
