@@ -1,10 +1,10 @@
 [package]
 name        = "travelling_salesman"
-version     = "0.0.14"
+version     = "0.0.15"
 authors     = ["Alfie John <alfie@alfie.wtf>"]
 
 description   = "Travelling Salesman Problem Solvers"
-documentation = "https://www.alfie.wtf/rustdoc/travelling_salesman/travelling_salesman/"
+documentation = "https://docs.rs/travelling_salesman"
 homepage      = "https://crates.io/crates/travelling_salesman"
 repository    = "https://github.com/alfiedotwtf/travelling_salesman"
 

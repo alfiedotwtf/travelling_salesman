@@ -11,7 +11,7 @@ article, and [In Pursuit of the Traveling Salesman: Mathematics at the Limits
 of Computation](http://www.amazon.com/Pursuit-Traveling-Salesman-Mathematics-Computation/dp/0691152705).
 
 The documentation for this crate can be [found
-here](https://www.alfie.wtf/rustdoc/travelling_salesman/travelling_salesman).
+here](https://docs.rs/travelling_salesman).
 
 # Examples
 
@@ -55,7 +55,7 @@ IT COMES WITHOUT WARRANTY OF ANY KIND.
 
 # Copyright and License
 
-Copyright (C) 2015 by Alfie John
+Perpetual Copyright (C) to Alfie John
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
