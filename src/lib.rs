@@ -37,11 +37,7 @@
 //!
 //! Please report any bugs or feature requests at:
 //!
-//! * [https://github.com/alfiedotwtf/travelling_salesman/issues](https://github.com/alfiedotwtf/travelling_salesman/issues)
-//!
-//! Watch the repository and keep up with the latest changes:
-//!
-//! * [https://github.com/alfiedotwtf/travelling_salesman/subscription](https://github.com/alfiedotwtf/travelling_salesman/subscription)
+//! * [https://gitlab.com/alfiedotwtf/travelling_salesman/issues](https://gitlab.com/alfiedotwtf/travelling_salesman/issues)
 //!
 //! Feel free to fork the repository and submit pull requests :)
 //!
