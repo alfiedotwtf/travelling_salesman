@@ -73,7 +73,9 @@ extern crate rand;
 extern crate time;
 
 use metaheuristics::Metaheuristics;
-use rand::{ThreadRng, Rng};
+use rand::Rng;
+use rand::rngs::ThreadRng;
+use rand::seq::SliceRandom;
 
 struct TravellingSalesman<'a> {
     distance_matrix: &'a Vec<Vec<f64>>,
@@ -93,7 +95,7 @@ impl<'a> Metaheuristics<Candidate> for TravellingSalesman<'a> {
 
     fn generate_candidate(&mut self) -> Candidate {
         let mut route: Vec<usize> = self.distance_matrix.iter().enumerate().map(|(i,_)| i).collect();
-        self.rng.shuffle(&mut route);
+        route.shuffle(&mut self.rng);
 
         let home_city = route[0];
         route.push(home_city);
