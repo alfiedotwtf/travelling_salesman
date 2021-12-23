@@ -30,15 +30,10 @@ extern crate metaheuristics;
 
 pub mod random_restarts;
 
-use time::{Duration};
 use rand::thread_rng;
+use time::Duration;
 
-use super::{
-    get_route_distance,
-    get_distance_matrix,
-    Tour,
-    TravellingSalesman,
-};
+use super::{get_distance_matrix, get_route_distance, Tour, TravellingSalesman};
 
 /// Returns an approximate solution to the Travelling Salesman Problem using Hill Climbing
 ///
@@ -78,13 +73,13 @@ use super::{
 pub fn solve(cities: &[(f64, f64)], runtime: Duration) -> Tour {
     let mut tsp = TravellingSalesman {
         distance_matrix: &get_distance_matrix(cities),
-        rng:             &mut thread_rng(),
+        rng: &mut thread_rng(),
     };
 
     let best_candidate = metaheuristics::hill_climbing::solve(&mut tsp, runtime);
 
     Tour {
         distance: get_route_distance(tsp.distance_matrix, &best_candidate.route),
-        route:    best_candidate.route,
+        route: best_candidate.route,
     }
 }

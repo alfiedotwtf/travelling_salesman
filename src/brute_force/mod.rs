@@ -26,11 +26,7 @@
 use std::collections::HashSet;
 use std::iter::FromIterator;
 
-use super::{
-    get_distance_matrix,
-    get_route_distance,
-    Tour,
-};
+use super::{get_distance_matrix, get_route_distance, Tour};
 
 /// Returns an exact solution to the Travelling Salesman Problem using Brute Force
 ///
@@ -65,15 +61,16 @@ use super::{
 pub fn solve(cities: &[(f64, f64)]) -> Tour {
     let mut smallest_tour = Tour {
         distance: 0.0,
-        route: vec![]
+        route: vec![],
     };
 
-    if cities.len() == 0 {
+    if cities.is_empty() {
         return smallest_tour;
     }
 
-    let mut unvisited_cities = HashSet::<usize>::from_iter((0..cities.len()).collect::<Vec<usize>>());
-    let current_route        = vec!(0);
+    let mut unvisited_cities =
+        HashSet::<usize>::from_iter((0..cities.len()).collect::<Vec<usize>>());
+    let current_route = vec![0];
     unvisited_cities.remove(&0);
 
     _brute_force(
@@ -87,14 +84,14 @@ pub fn solve(cities: &[(f64, f64)]) -> Tour {
 }
 
 fn _brute_force(
-    distance_matrix:  &Vec<Vec<f64>>,
+    distance_matrix: &[Vec<f64>],
     unvisited_cities: HashSet<usize>,
-    current_route:    Vec<usize>,
-    smallest_tour:    &mut Tour
+    current_route: Vec<usize>,
+    smallest_tour: &mut Tour,
 ) {
     for unvisited_city in &unvisited_cities {
         let mut my_unvisited_cities = unvisited_cities.clone();
-        my_unvisited_cities.remove(&unvisited_city);
+        my_unvisited_cities.remove(unvisited_city);
 
         let mut my_route = current_route.clone();
         my_route.push(*unvisited_city);
@@ -103,11 +100,11 @@ fn _brute_force(
             let home_city = my_route[0];
             my_route.push(home_city);
 
-            let my_route_distance = get_route_distance(&distance_matrix, &my_route);
+            let my_route_distance = get_route_distance(distance_matrix, &my_route);
 
             if (smallest_tour.distance == 0.0) || (my_route_distance < smallest_tour.distance) {
                 smallest_tour.distance = my_route_distance;
-                smallest_tour.route    = my_route;
+                smallest_tour.route = my_route;
             }
 
             return;
