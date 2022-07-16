@@ -8,7 +8,7 @@ Patches implementing useful algorithms most welcome.
 For more information, please see the [Travelling Salesman
 Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem) Wikipedia
 article, and [In Pursuit of the Traveling Salesman: Mathematics at the Limits
-of Computation](http://www.amazon.com/Pursuit-Traveling-Salesman-Mathematics-Computation/dp/0691152705).
+of Computation](https://www.amazon.com/Pursuit-Traveling-Salesman-Mathematics-Computation/dp/0691152705).
 
 The documentation for this crate can be [found
 here](https://docs.rs/travelling_salesman).
@@ -63,4 +63,4 @@ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with
-this program. If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
+this program. If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).
